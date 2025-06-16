@@ -1,0 +1,3 @@
+.pyenv/
+.env
+productify/__pycache__/
