@@ -4,7 +4,7 @@ from django.db import models
 class Product(models.Model):
     title = models.CharField(max_length=30)
     describtion = models.TextField()
-    creation_date = models.DateField(auto_now=False, auto_now_add=False)
+    creation_date = models.DateTimeField(auto_now=False, auto_now_add=False)
     is_deleted = models.BooleanField()
     # creator_user
     image_url = models.CharField(max_length=100, )
