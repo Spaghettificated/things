@@ -1,0 +1,10 @@
+<a href="{% url 'list' %}"> home </a> 
+<h1>{{ product.title }}</h1>
+<div> {{ product.desc }} </div>
+
+<h2> Comments: </h2>
+<ul>
+{% for comment in comments %}
+    <li>  {{ comment.desc }}  [{{comment.created}}] </li>
+{% endfor %}
+</ul>
