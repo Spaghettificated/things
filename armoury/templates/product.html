@@ -1,10 +1,17 @@
-<a href="{% url 'list' %}"> home </a> 
+<a href="{% url 'list' %}"> home </a>|
+<a href="{% url 'delete' product.id %}"> delete </a>| 
+<a href="{% url 'modify' product.id %}"> modify </a> 
 <h1>{{ product.title }}</h1>
 <div> {{ product.desc }} </div>
 
 <h2> Comments: </h2>
-<ul>
+<ul style="list-style: none;"style="list-style: none;">
 {% for comment in comments %}
-    <li>  {{ comment.desc }}  [{{comment.created}}] </li>
+    <li>  [{{comment.created}}] &nbsp;&nbsp;&nbsp; {{ comment.desc }}   
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          [<a href="{% url 'list' %}"> edit </a>|
+          <a href="{% url 'list' %}"> delete </a>]
+    </li>
 {% endfor %}
+    <li><br> <a href="{% url 'list' %}"> new comment </a> </li>
 </ul>

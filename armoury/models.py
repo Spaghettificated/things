@@ -5,7 +5,7 @@ class Product(models.Model):
     title = models.CharField(max_length=30)
     desc = models.TextField("describtion") 
     created = models.DateTimeField("creation_date", auto_now_add=True)
-    is_deleted = models.BooleanField() # add default
+    is_deleted = models.BooleanField(default=False) 
     # creator_user
     image_url = models.CharField(max_length=100, null = True)
 
@@ -17,7 +17,7 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments")
     desc = models.TextField("describtion")
     created = models.DateTimeField("creation_date", auto_now_add=True)
-    is_deleted = models.BooleanField()
+    is_deleted = models.BooleanField(default=False)
     #creator_user
 
     def __str__(self):
