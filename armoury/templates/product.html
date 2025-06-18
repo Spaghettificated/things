@@ -3,7 +3,7 @@
 <a href="{% url 'modify' product.id %}"> modify </a>|
 <br>
 {% if product.image %}
-    <img src="{{ product.image.url }}">
+    <img src="{{ product.image.url }}" height=300px>
 {% endif %}
 <h1>{{ product.title }}</h1>
 <div> {{ product.desc }} </div>
