@@ -1,3 +1,4 @@
+
 <a href="{% url 'list' %}"> home </a>|
 <a href="{% url 'delete' product.id %}"> delete </a>| 
 <a href="{% url 'modify' product.id %}"> modify </a>
@@ -8,14 +9,21 @@
 <h1>{{ product.title }}</h1>
 <div> {{ product.desc }} </div>
 
+
 <h2> Comments: </h2>
 <ul style="list-style: none;"style="list-style: none;">
 {% for comment in comments %}
     <li>  [{{comment.created}}] &nbsp;&nbsp;&nbsp; {{ comment.desc }}   
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          [<a href="{% url 'modify_comment' product.id comment.id %}"> edit </a>|
-          <a href="{% url 'delete_comment'  product.id comment.id%}"> delete </a>]
+          [<a href="{% url 'list' %}"> edit </a>|
+          <a href="{% url 'list' %}"> delete </a>]
     </li>
 {% endfor %}
-    <li><br> <a href="{% url 'add_comment' product.id %}"> new comment </a> </li>
+<br> 
 </ul>
+
+
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
