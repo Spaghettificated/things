@@ -27,7 +27,7 @@ class ProductListView(ListView):
 
 class CreateProductView(CreateView):
     model = Product
-    fields = ['title', 'desc']
+    fields = ['title', 'desc', 'image']
     template_name = 'armoury/product_edit.html'
 
     def get_success_url(self):
@@ -50,7 +50,7 @@ def delete_product(request, product_id):
 
 class ModifyProductView(UpdateView):
     model = Product
-    fields = ['title', 'desc']
+    fields = ['title', 'desc', 'image']
     template_name_suffix = '_edit'
     def get_success_url(self):
         return reverse('product', kwargs = {"product_id": self.object.id})

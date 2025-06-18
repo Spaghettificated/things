@@ -1,6 +1,10 @@
 <a href="{% url 'list' %}"> home </a>|
 <a href="{% url 'delete' product.id %}"> delete </a>| 
-<a href="{% url 'modify' product.id %}"> modify </a> 
+<a href="{% url 'modify' product.id %}"> modify </a>|
+<br>
+{% if product.image %}
+    <img src="{{ product.image.url }}">
+{% endif %}
 <h1>{{ product.title }}</h1>
 <div> {{ product.desc }} </div>
 

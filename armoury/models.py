@@ -7,7 +7,7 @@ class Product(models.Model):
     created = models.DateTimeField("creation_date", auto_now_add=True)
     is_deleted = models.BooleanField(default=False) 
     # creator_user
-    image_url = models.CharField(max_length=100, null = True)
+    image = models.ImageField(upload_to="images", null=True)
 
     def __str__(self):
         return self.title
