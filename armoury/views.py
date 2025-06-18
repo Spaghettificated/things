@@ -10,7 +10,7 @@ def product_list(request):
 
 def product_page(request, product_id):
     product = get_object_or_404(Product, pk=product_id, is_deleted=False)
-    comments = list(Comment.objects.all().filter(product=product))
+    comments = product.comments.all()
     # return HttpResponse(f"product #{product_id}: {product.title}")
     return render(request, "product.html", {"product": product, "comments": comments})
         
